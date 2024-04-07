@@ -50,3 +50,16 @@ Perform the following steps:
     3.2 Do K-Means clustering of employees who left the company into 3 clusters?
     3.3 Based on the satisfaction and evaluation factors, give your thoughts on the employee clusters
 
+4. Handle the left Class Imbalance using the SMOTE technique
+
+    4.1 Pre-process the data by converting categorical columns to numerical columns by:
+
+    - Separating categorical variables and numeric variables.
+    - Applying get_dummies() to the categorical variables.
+    - Combining categorical variables and numeric variables.
+
+    4.2 Do the stratified split of the dataset to train and test in the ratio 80:20 with random_state=123
+
+    4.3 Upsample the train dataset using the SMOTE technique from the imblearn module
+
+
