@@ -62,4 +62,13 @@ Perform the following steps:
 
     4.3 Upsample the train dataset using the SMOTE technique from the imblearn module
 
+5. Perform 5-fold cross-validation model training and evaluate performance
+
+    5.1. Train a Logistic Regression model, apply a 5-fold CV, and plot the classification report
+
+    5.2. Train a Random Forest Classifier model, apply the 5-fold CV, and plot the classification report
+
+    5.3. Train a Gradient Boosting Classifier model, apply the 5-fold CV, and plot the classification report
+    
+
 
