@@ -5,16 +5,23 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 
+# Box plots function for features
+def box_plots_for(feature, df):
+    plt.figure(figsize=(8, 6))
+    sns.boxplot(x='left', y=feature, data=df)
+    plt.title(f'{feature} vs Turnover')
+    plt.show()
+
 # Create a function to ploy distribution
-def histplot_employee_by(feature, df, show_turnover=True, show_kde=True):
+def histplot_employee_kde_by(feature, df, show_turnover=True, show_kde=True):
     plt.figure(figsize=(8, 4))
     if show_turnover:
-        # sns.histplot(x=feature, hue='left',data=df,  kde=show_kde, bins=15, palette='Set2')
+        sns.histplot(x=feature, hue='left',data=df,  kde=show_kde, bins=15, palette='Set2')
         # sns.histplot(x=feature, hue='left', data=df, bins=15, palette='Set2')
-        sns.histplot(x=feature, hue='left', data=df,  bins=15, palette='Set2')
+        # sns.histplot(x=feature, hue='left', data=df,  bins=15, palette='Set2')
         plt.legend(title='Employee Status', labels=['Left', 'Stayed'])
     else:
-        sns.histplot(df[feature], kde=show_kde, bins=15)
+        sns.histplot(x=feature, data=df, kde=show_kde, bins=15)
     plt.title(f'Distribution of Employees based on {feature}')
     # plt.xlabel(f'Number of {feature}')
     plt.ylabel('Count of Employees')
@@ -34,9 +41,11 @@ def plot_classification_report(report, title):
     """Plot the classification report as a heatmap."""
     df_report = pd.DataFrame(report).iloc[:-1, :].T
     plt.figure(figsize=(10, 6))
-    sns.heatmap(df_report, annot=True, cmap='coolwarm', fmt='.2f')
+    sns.heatmap(df_report, annot=True, vmax=1, vmin=-1, center=0,cmap='vlag')
     plt.title(title)
     plt.show()
+
+
 
 # # Plot classification report
 # def plot_classification_report(report):
