@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import seaborn as sns
+from sklearn.metrics import confusion_matrix
 
 # Box plots function for features
 def box_plots_for(feature, df):
@@ -43,15 +44,16 @@ def plot_classification_report(report, title):
     plt.figure(figsize=(10, 6))
     sns.heatmap(df_report, annot=True, vmax=1, vmin=-1, center=0,cmap='vlag')
     plt.title(title)
+    plt.tight_layout()
     plt.show()
 
-
-
-# # Plot classification report
-# def plot_classification_report(report):
-#     df_report = pd.DataFrame(report).transpose()
-#     df_report = df_report.iloc[:-1, :]  # Exclude support row
-#     sns.heatmap(df_report, annot=True, cmap='viridis', fmt='.2f')
-#     plt.title('Classification Report')
-#     plt.yticks(rotation=0)
-#     plt.show()
+def plot_confusion_matrix(y, y_pred):
+    # Plot confusion matrix
+    cm = confusion_matrix(y, y_pred)
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(cm, annot=True, fmt='d', cmap="Blues")
+    plt.title("Confusion Matrix")
+    plt.xlabel("Predicted")
+    plt.ylabel("True")
+    plt.tight_layout()
+    plt.show()
