@@ -47,13 +47,20 @@ def plot_classification_report(report, title):
     plt.tight_layout()
     plt.show()
 
-def plot_confusion_matrix(y, y_pred):
+def plot_confusion_matrix(y, y_pred, model=""):
     # Plot confusion matrix
     cm = confusion_matrix(y, y_pred)
     plt.figure(figsize=(8, 6))
     sns.heatmap(cm, annot=True, fmt='d', cmap="Blues")
-    plt.title("Confusion Matrix")
+    plt.title(f"{model} Confusion Matrix")
     plt.xlabel("Predicted")
     plt.ylabel("True")
     plt.tight_layout()
     plt.show()
+
+def percentages_turnover_by(feature, df):
+    perc = df.groupby(['left'])[feature].mean().apply(lambda x: '{:,.2f} %'.format(x * 100)).reset_index()
+    df.groupby(['number_project'])['left']
+    print(f"Employee's turnover % based on {feature}")
+    print("-"*50)
+    print(perc)    
