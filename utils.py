@@ -47,9 +47,9 @@ def plot_classification_report(report, title):
     plt.tight_layout()
     plt.show()
 
-def plot_confusion_matrix(y, y_pred, model=""):
+def plot_confusion_matrix(y_test, y_pred, model=""):
     # Plot confusion matrix
-    cm = confusion_matrix(y, y_pred)
+    cm = confusion_matrix(y_test, y_pred)
     plt.figure(figsize=(8, 6))
     sns.heatmap(cm, annot=True, fmt='d', cmap="Blues")
     plt.title(f"{model} Confusion Matrix")
