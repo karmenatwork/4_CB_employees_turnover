@@ -28,7 +28,6 @@ As the ML Developer assigned to the HR Department, you have been asked to create
 | Work_accident        | 0 - no accident during employee stay, 1 - accident during employee stay
 | left                 | 0 indicates employee stays in the company, 1 indicates employee left the company
 | promotion_last_5years| Number of promotions in his stay
-| Department           | Department which an employee belongs to
 | salary               | Salary in USD
 
 Perform the following steps:
@@ -69,6 +68,29 @@ Perform the following steps:
     5.2. Train a Random Forest Classifier model, apply the 5-fold CV, and plot the classification report
 
     5.3. Train a Gradient Boosting Classifier model, apply the 5-fold CV, and plot the classification report
+
+6. Identify the best model and justify the evaluation metrics used
+
+    6.1 Find the ROC/AUC for each model and plot the ROC curve
+
+    6.2 Find the confusion matrix for each of the models
+
+    6.3 Explain which metric needs to be used from the confusion matrix - Recall or Precision?
+
+7. Suggest various retention strategies for targeted employees
+
+    7.1 Using the best model, predict the probability of employee turnover in the test data
+
+    7.2 Based on the probability score range below, categorize the employees into four zones and suggest your thoughts on the retention strategies for each zone
+    
+    - Safe Zone (Green) (Score < 20%)
+
+    - Low Risk Zone (Yellow) (20% < Score < 60%)
+
+    - Medium Risk Zone (Orange) (60% < Score < 90%)
+
+    - High Risk Zone (Red) (Score > 90%).    
+
     
 
 
